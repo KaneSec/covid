@@ -71,9 +71,9 @@
                                 "type": "quantitative",
                                 "scale": {
                                     "type": "log",
-                                    "scheme": "oranges"
+                                    "scheme": "orangered"
                                 },
-                                "legend": { "title": "Sum of New Cases" }
+                                "legend": { "title": "Total New Cases" }
                             },
 
                             "opacity": {
@@ -81,7 +81,7 @@
                                 "value": 0.2
                             },
                             "tooltip": [
-                                { "field": "location", "type": "nominal", "title": "Country" },
+                                { "field": "location", "type": "nominal", "title": "Country/Region" },
                                 {
                                     "field": "sum_new_cases",
                                     "type": "quantitative",
@@ -117,7 +117,7 @@
                     "y": {
                         "aggregate": "sum",
                         "field": "new_cases",
-                        "axis": { "title": "Sum of New Cases" }
+                        "axis": { "title": "Total New Cases" }
                     },
 
                     "color": {
@@ -157,7 +157,7 @@
             "view": {
                 "stroke": "transparent"
             },
-            "title": "Top 30 Countries with Most Covid-cases",
+            "title": "Top 30 Countries/Regions with Most Covid-cases",
             "transform": [
                 { "filter": { "param": "time_brush" } },
                 { "filter": { "param": "continent_highlight" } },
@@ -186,7 +186,7 @@
                 "x": {
                     "field": "sum_new_cases",
                     "type": "quantitative",
-                    "axis": { "title": "Sum of New Cases", "grid": false }
+                    "axis": { "title": "Total New Cases", "grid": false }
                 },
                 "y": {
                     "field": "location",
