@@ -12,7 +12,7 @@
                 "height": 300,
                 "title": "Covid-19 Cases of the World",
                 "projection": {
-                    "type": "equalEarth"
+                    "type": "equirectangular"
                 },
                 "layer": [{
 
@@ -44,7 +44,7 @@
                                     "field": "new_cases",
                                     "as": "sum_new_cases"
                                 }],
-                                "groupby": ["location", "iso_code", "continent"]
+                                "groupby": ["location", "iso_code", "continent", "population"]
                             },
                             { "filter": "datum.sum_new_cases > 0 " },
                             {
@@ -60,7 +60,8 @@
                                     "key": "properties.ADM0_A3_IS"
                                 },
                                 "as": "geo"
-                            }
+                            },
+                            { "calculate": "datum.sum_new_cases/datum.population * 100000", "as": "cases_normalised" }
                         ],
                         "mark": { "type": "geoshape", "stroke": "#fff", "strokeWidth": 0.5 },
                         "encoding": {
@@ -70,7 +71,7 @@
                                 "type": "quantitative",
                                 "scale": {
                                     "type": "log",
-                                    "scheme": "orangered"
+                                    "scheme": "oranges"
                                 },
                                 "legend": { "title": "Sum of New Cases" }
                             },
