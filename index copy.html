@@ -25,7 +25,7 @@
 
     <div class="page">
 
-
+        <h2>Cases</h2>
 
         <!-- pure grid group -->
         <div class="pure-g">
@@ -38,6 +38,29 @@
 
         <hr class="hr3">
 
+        <h2>Vaccinations</h2>
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div id="vis2" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+        <br>
+
+        <hr class="hr3">
+
+        <h2>Vaccination Rates</h2>
+
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div id="vis3" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+        <br>
 
 
     </div>
@@ -46,6 +69,16 @@
     <script type="text/javascript">
         var specVis1 = "cases.vg.json";
         vegaEmbed('#vis1', specVis1, {
+            "actions": false
+        });
+
+        var specVis2 = "vaccine.vg.json";
+        vegaEmbed('#vis2', specVis2, {
+            "actions": false
+        });
+
+        var specVis3 = "vaccine_rate.vg.json";
+        vegaEmbed('#vis3', specVis3, {
             "actions": false
         });
     </script>
