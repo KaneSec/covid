@@ -1,0 +1,47 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 600,
+  "height": 500,
+  "projection": {
+    "type": "azimuthalEqualArea",
+    "rotate": [-133, 28, 0]
+  },
+  "title": "Marriage Equality (The 2016 National Survey Result)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/KaneSec/vega_lite/main/0_students_questions/geo/1/CED_2016_AUST.json",
+    "format": {
+          "type": "topojson",
+          "feature": "CED_2016_AUST"
+        }
+  },
+  "transform": [{
+      "lookup": "properties.CED_CODE16",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/KaneSec/vega_lite/main/0_students_questions/geo/1/survey.csv"
+        },
+        "key": "Federal_Electoral_Division",
+        "fields": ["Total_Clear_Responses"]
+      }
+    },
+    {"calculate": "datum.Total_Responses_of_Yes/datum.Total_Clear_Responses", "as":"% of Yes" }  ],
+  "mark": {
+    "type": "geoshape",
+    "stroke": "#333",
+    "strokeWidth": 0.5
+    },
+  "encoding": {
+    "color": {
+      "field": "% of Yes",
+      "type": "nominal",
+      "scale": {
+        "domainMid": 0.5,
+        "scheme": "redblue"
+      }
+    },
+    "tooltip": [
+      {"field": "properties.CED_NAME16", "type": "nominal", "title": "Electoral Division"},
+      {"field": "% of Yes", "type": "quantitative", "format": ".2%"}
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {
-        "url": "https://covid.ourworldindata.org/data/owid-covid-data.csv"
+        "url": "owid-covid-data.csv"
     },
     "transform": [
         { "filter": "datum.continent != ''" }
